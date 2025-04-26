@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Interest Calculator
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="STYLE.CSS">
+</head>
+<body> 
+    
+
+<div class="container">
+    <div class="box1">
+        
+        <p>Loan amount</p>
+        <span>Enter the loan amount</span>   <input type="text" value="" id="rangevalue1" onchange="abc1(this.value)" > <i class="fa-solid fa-indian-rupee-sign"></i>
+        <br>
+        <input type="range" min="0" max="1000" value="0" id="range1" onchange="rangeslide1(this.value),ptr()">
+    </div>
+    <div class="box2">
+      <p>Tenure plan</p>
+      <span> choose your tenure plane</span> <input type="text" value="" id="rangevalue2" onchange="abc2(this.value)"> <i class="fa-solid fa-calendar-days"> </i><br>
+      <input type="range" min="0" max="256" value="1" id="range2" onchange="rangeslide2(this.value),ptr()" >
+    </div>
+    <div class="box3">
+        <p>Rate of interest</p>
+      <span>Adujst your intrest rate</span> <input type="text" value="" id="rangevalue3" onchange="abc3(this.value)">   <i class="fa-solid fa-percent"></i> <br>
+      <input type="range" min="0" max="100" value="0" id="range3" onchange="rangeslide3(this.value),ptr()">
+    </div>
+    <button onclick="ptr(),abc()" >Calculate </button>
+    </div>
+    <div id="displayvalue">
+    <div id="saidbox"><p>Principle amount</p><i class="fa-solid fa-indian-rupee-sign"></i><p id="Principleamount">000</p></div>
+    <div id="saidbox"><p>Total interest</p><i class="fa-solid fa-indian-rupee-sign"></i><p id="smplintrest">000</p></div>
+    <div id="saidbox"><p>Total amout</p><i class="fa-solid fa-indian-rupee-sign"></i><p id="totalamount">000</p></div>
+    </div>
+    
+    <script>
+        
+        function rangeslide1(value){
+            document.getElementById("rangevalue1").value=value;
+            document.getElementById("Principleamount").innerText=value;
+        }
+        function rangeslide2(value){
+            document.getElementById("rangevalue2").value=value;
+        }
+        function rangeslide3(value){
+            document.getElementById("rangevalue3").value=value;
+        }
+        function ptr(){
+        var p,t,r ,emi;
+        p=eval(document.getElementById("rangevalue1").value);
+        t=eval(document.getElementById("rangevalue2").value);
+        r=eval(document.getElementById("rangevalue3").value);
+        emi=p*t*r/100;
+        document.getElementById("smplintrest").innerText=emi;
+        document.getElementById("totalamount").innerText=emi+p;
+        
+        
+    }
+    function abc1(value){
+        document.getElementById("range1").value=value;
+    }
+    function abc2(value){
+        document.getElementById("range2").value=value;
+    }
+    function abc3(value){
+        document.getElementById("range3").value=value;
+    }
+    
+        
+        
+        
+        
+
+    </script>
+</body>
+</html>
